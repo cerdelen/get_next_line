@@ -16,11 +16,7 @@
 
 # include <unistd.h>
 
-# include <stdio.h>
-
 # include <stdlib.h>
-
-# include <string.h>				//dont need
 
 char	*get_next_line(int fd);
 char	*appending(char *str1, char *str2);
