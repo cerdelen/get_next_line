@@ -23,11 +23,11 @@ void	store_remainder(char *remainder, char **remainderarr, int fd)
 	int		strlen;
 	char	*allocremainder;
 
-	strlen = ft_strlen(remainder);
+	strlen = gnl_strlen(remainder);
 	if (strlen > 0)
 	{
 		allocremainder = malloc((strlen + 1) * sizeof(char));
-		ft_memmove(allocremainder, remainder, strlen);
+		gnl_memmove(allocremainder, remainder, strlen);
 		allocremainder[strlen] = '\0';
 		remainderarr[fd] = allocremainder;
 	}
@@ -41,12 +41,12 @@ char	*get_line(char *str1, char **remainderarr, int fd, char *buff)
 	char	*remainder;
 	int		strlen;
 
-	remainder = (ft_strchr(str1, '\n') + 1);
+	remainder = (gnl_strchr(str1, '\n') + 1);
 	store_remainder(remainder, remainderarr, fd);
 	remainder[0] = '\0';
-	strlen = ft_strlen(str1);
+	strlen = gnl_strlen(str1);
 	out = malloc((strlen + 1) * sizeof(char));
-	ft_memmove(out, str1, strlen + 1);
+	gnl_memmove(out, str1, strlen + 1);
 	free(str1);
 	free(buff);
 	return (out);
@@ -58,14 +58,14 @@ char	*appending(char *str1, char *str2)
 	int		len1;
 	int		len2;
 
-	len2 = ft_strlen(str2);
+	len2 = gnl_strlen(str2);
 	len1 = 0;
 	if (str1)
-		len1 = ft_strlen(str1);
+		len1 = gnl_strlen(str1);
 	out = malloc((len1 + len2 + 1) * sizeof(char));
 	if (str1)
-		ft_memmove(out, str1, len1);
-	ft_memmove(out + len1, str2, len2);
+		gnl_memmove(out, str1, len1);
+	gnl_memmove(out + len1, str2, len2);
 	out[len1 + len2] = '\0';
 	if (str1)
 		free(str1);
@@ -86,7 +86,7 @@ char	*get_next_line(int fd)
 		readstr = appending(readstr, remainder[fd]);
 		free(remainder[fd]);
 		remainder[fd] = NULL;
-		if (ft_strchr(readstr, '\n'))
+		if (gnl_strchr(readstr, '\n'))
 			return (get_line(readstr, remainder, fd, buff));
 	}
 	readret = read(fd, buff, BUFFER_SIZE);
@@ -94,7 +94,7 @@ char	*get_next_line(int fd)
 	{
 		buff[readret] = '\0';
 		readstr = appending(readstr, buff);
-		if (ft_strchr(readstr, '\n'))
+		if (gnl_strchr(readstr, '\n'))
 			return (get_line(readstr, remainder, fd, buff));
 		readret = read(fd, buff, BUFFER_SIZE);
 	}
