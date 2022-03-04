@@ -21,9 +21,9 @@
 char	*get_next_line(int fd);
 char	*appending(char *str1, char *str2);
 char	*get_line(char *str1, char **remainderarr, int fd, char *buff);
-char	*ft_strchr(const char *s, int c);
-int		ft_strlen(const char *s);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
-void	*ft_memmove(void *dest, const void *src, size_t n);
+char	*gnl_strchr(const char *s, int c);
+int		gnl_strlen(const char *s);
+void	*gnl_memcpy(void *dest, const void *src, size_t n);
+void	*gnl_memmove(void *dest, const void *src, size_t n);
 
 #endif
