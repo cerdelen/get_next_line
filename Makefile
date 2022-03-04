@@ -6,7 +6,7 @@
 #    By: Cerdelen < cerdelen@student.42wolfsburg.de +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/04 15:31:04 by Cerdelen          #+#    #+#              #
-#    Updated: 2022/03/04 15:31:05 by Cerdelen         ###   ########.fr        #
+#    Updated: 2022/03/04 15:32:36 by Cerdelen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ $(NAME) : $(OBJS)
 clean: 
 	rm -f $(OBJS)
 
-fclean : clean
-	rm -f (NAME)
+fclean : $(clean)
+	rm -f $(NAME)
 
-re : fclean all 
+re : fclean all
