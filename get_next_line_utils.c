@@ -12,7 +12,7 @@
 
 #include "get_next_line.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	*gnl_memcpy(void *dest, const void *src, size_t n)
 {
 	size_t		i;
 	char		*a1;
@@ -31,7 +31,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	return (dest);
 }
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	*gnl_memmove(void *dest, const void *src, size_t n)
 {
 	size_t			i;
 
@@ -43,7 +43,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		while (n > 0)
 		{
 			n--;
-			ft_memcpy(dest + n, src + n, 1);
+			gnl_memcpy(dest + n, src + n, 1);
 		}
 		return (dest);
 	}
@@ -51,14 +51,14 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	{
 		while (i < n)
 		{
-			ft_memcpy(dest + i, src + i, 1);
+			gnl_memcpy(dest + i, src + i, 1);
 			i++;
 		}
 	}
 	return (dest);
 }
 
-int	ft_strlen(const char *s)
+int	gnl_strlen(const char *s)
 {
 	int	i;
 
@@ -68,7 +68,7 @@ int	ft_strlen(const char *s)
 	return (i);
 }
 
-char	*ft_strchr(const char *s, int c)
+char	*gnl_strchr(const char *s, int c)
 {
 	int		i;
 	char	*ptr;
